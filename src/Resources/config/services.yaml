@@ -1,0 +1,13 @@
+services:
+  Dbp\Relay\FrontendBundle\DataPersister\:
+    resource: '../../DataPersister'
+    autowire: true
+    autoconfigure: true
+
+  Dbp\Relay\FrontendBundle\DataProvider\UserCollectionDataProvider:
+    tags: [{ name: 'api_platform.collection_data_provider'}]
+    autowire: true
+
+  Dbp\Relay\FrontendBundle\DataProvider\UserItemDataProvider:
+    tags: ['api_platform.item_data_provider']
+    autowire: true
