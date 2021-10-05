@@ -4,10 +4,11 @@ services:
     autowire: true
     autoconfigure: true
 
-  Dbp\Relay\FrontendBundle\DataProvider\UserCollectionDataProvider:
-    tags: [{ name: 'api_platform.collection_data_provider'}]
+  Dbp\Relay\FrontendBundle\DataProvider\:
+    resource: '../../DataProvider'
     autowire: true
+    autoconfigure: true
 
-  Dbp\Relay\FrontendBundle\DataProvider\UserItemDataProvider:
-    tags: ['api_platform.item_data_provider']
+  Dbp\Relay\FrontendBundle\Service\FrontendUserProvider:
     autowire: true
+    autoconfigure: true

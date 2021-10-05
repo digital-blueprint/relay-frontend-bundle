@@ -26,7 +26,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *             },
  *         }
  *     },
- *     iri="https://schema.org/User",
+ *     iri="https://schema.org/Thing",
  *     shortName="FrontendUser",
  *     normalizationContext={
  *         "groups" = {"FrontendUser:output"},
@@ -46,21 +46,20 @@ class User
     private $identifier;
 
     /**
-     * @ApiProperty(iri="https://schema.org/name")
-     * @Groups({"FrontendUser:output", "FrontendUser:input"})
+     * @Groups({"FrontendUser:output"})
      *
-     * @var string
+     * @var string[]
      */
-    private $name;
+    private $roles;
 
-    public function getName(): string
+    public function getRoles(): array
     {
-        return $this->name;
+        return $this->roles;
     }
 
-    public function setName(string $name): void
+    public function setRoles($roles): void
     {
-        $this->name = $name;
+        $this->roles = $roles;
     }
 
     public function getIdentifier(): string
