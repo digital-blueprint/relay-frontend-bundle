@@ -15,7 +15,7 @@ composer require dbp/relay-frontend-bundle
 
 ## Integration into the Relay API Server
 
-* Add the bundle to your `config/bundles.php` in front on `DbpRelayCoreBundle`:
+* Add the bundle to your `config/bundles.php` in front of `DbpRelayCoreBundle`:
 
 ```php
 ...
