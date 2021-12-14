@@ -24,7 +24,7 @@ final class UserCollectionDataProvider extends AbstractController implements Col
         return User::class === $resourceClass;
     }
 
-    public function getCollection(string $resourceClass, string $operationName = null, array $context = [])
+    public function getCollection(string $resourceClass, string $operationName = null, array $context = []): iterable
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 

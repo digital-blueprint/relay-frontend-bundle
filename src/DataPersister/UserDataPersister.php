@@ -19,7 +19,7 @@ class UserDataPersister extends AbstractController implements DataPersisterInter
         return $data instanceof User;
     }
 
-    public function persist($data)
+    public function persist($data): void
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
     }
