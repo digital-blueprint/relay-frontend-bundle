@@ -12,16 +12,3 @@ You can install the bundle directly from [packagist.org](https://packagist.org/p
 ```bash
 composer require dbp/relay-frontend-bundle
 ```
-
-## Integration into the Relay API Server
-
-* Add the bundle to your `config/bundles.php` in front of `DbpRelayCoreBundle`:
-
-```php
-...
-Dbp\Relay\FrontendBundle\DbpRelayFrontendBundle::class => ['all' => true],
-Dbp\Relay\CoreBundle\DbpRelayCoreBundle::class => ['all' => true],
-];
-```
-
-* Run `composer install` to clear caches
