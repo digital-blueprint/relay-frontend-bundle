@@ -4,23 +4,28 @@ declare(strict_types=1);
 
 namespace Dbp\Relay\FrontendBundle\Service;
 
-use Dbp\Relay\CoreBundle\API\UserSessionInterface;
 use Dbp\Relay\FrontendBundle\Entity\User;
+use Symfony\Component\Security\Core\Security;
 
 class FrontendUserProvider
 {
-    private $userSession;
+    /**
+     * @var Security
+     */
+    private $security;
 
-    public function __construct(UserSessionInterface $userSession)
+    public function __construct(Security $security)
     {
-        $this->userSession = $userSession;
+        $this->security = $security;
     }
 
-    public function getCurrentUser(): User
+    public function getCurrentUser(): ?User
     {
+        $symfonyUser = $this->security->getUser();
+        assert($symfonyUser !== null);
         $user = new User();
-        $user->setIdentifier($this->userSession->getUserIdentifier());
-        $user->setRoles($this->userSession->getUserRoles());
+        $user->setIdentifier($symfonyUser->getUserIdentifier());
+        $user->setRoles($symfonyUser->getRoles());
 
         return $user;
     }
