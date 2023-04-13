@@ -1,6 +1,6 @@
 # DBP Relay Frontend Bundle
 
-[GitLab](https://gitlab.tugraz.at/dbp/relay/dbp-relay-frontend-bundle) | [Packagist](https://packagist.org/packages/dbp/relay-frontend-bundle)
+[GitHub](https://github.com/digital-blueprint/relay-frontend-bundle) | [Packagist](https://packagist.org/packages/dbp/relay-frontend-bundle)
 
 This bundle contains APIs mostly useful for frontend apps. It is a required dependency
 for all DBP frontend apps.
