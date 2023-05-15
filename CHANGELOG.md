@@ -2,6 +2,10 @@
 
 * Update to api-platform v2.7
 
+# v0.1.3
+
+* Moved to GitHub
+
 # v0.1.2
 
 * Remove usage of deprecated core bundle functionality
