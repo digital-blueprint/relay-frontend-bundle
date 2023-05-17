@@ -1,3 +1,7 @@
+# v0.1.5
+
+* Port to the new api-platform metadata system
+
 # v0.1.4
 
 * Update to api-platform v2.7

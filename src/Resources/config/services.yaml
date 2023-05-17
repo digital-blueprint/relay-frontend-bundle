@@ -1,11 +1,6 @@
 services:
-  Dbp\Relay\FrontendBundle\DataPersister\:
-    resource: '../../DataPersister'
-    autowire: true
-    autoconfigure: true
-
-  Dbp\Relay\FrontendBundle\DataProvider\:
-    resource: '../../DataProvider'
+  Dbp\Relay\FrontendBundle\State\:
+    resource: '../../State'
     autowire: true
     autoconfigure: true
 

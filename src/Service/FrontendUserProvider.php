@@ -19,7 +19,7 @@ class FrontendUserProvider
         $this->security = $security;
     }
 
-    public function getCurrentUser(): ?User
+    public function getCurrentUser(): User
     {
         $symfonyUser = $this->security->getUser();
         assert($symfonyUser !== null);
