@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Dbp\Relay\FrontendBundle\Tests;
 
-use ApiPlatform\Core\Bridge\Symfony\Bundle\Test\ApiTestCase;
+use ApiPlatform\Symfony\Bundle\Test\ApiTestCase;
 use Dbp\Relay\CoreBundle\TestUtils\UserAuthTrait;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -20,6 +20,16 @@ class ApiTest extends ApiTestCase
 
         $response = $client->request('GET', '/frontend/users/foobar');
         $this->assertSame(Response::HTTP_UNAUTHORIZED, $response->getStatusCode());
+    }
+
+    public function testPostPut()
+    {
+        $client = self::createClient();
+        $response = $client->request('POST', '/frontend/users');
+        $this->assertSame(Response::HTTP_METHOD_NOT_ALLOWED, $response->getStatusCode());
+
+        $response = $client->request('PUT', '/frontend/users');
+        $this->assertSame(Response::HTTP_METHOD_NOT_ALLOWED, $response->getStatusCode());
     }
 
     public function testAuthCollection()
