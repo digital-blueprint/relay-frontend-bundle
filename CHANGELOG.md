@@ -1,3 +1,7 @@
+# v0.1.6
+
+* Drop support for PHP 7.3
+
 # v0.1.5
 
 * Port to the new api-platform metadata system
