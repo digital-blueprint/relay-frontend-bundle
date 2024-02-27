@@ -12,6 +12,9 @@ use Dbp\Relay\FrontendBundle\Service\FrontendUserProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * @implements ProviderInterface<User>
+ */
 class UserProvider extends AbstractController implements ProviderInterface
 {
     /**
