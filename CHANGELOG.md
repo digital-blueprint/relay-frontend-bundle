@@ -1,3 +1,7 @@
+# v0.1.9
+
+* Add support for api-platform 3.2
+
 # v0.1.8
 
 * Add support for Symfony 6
