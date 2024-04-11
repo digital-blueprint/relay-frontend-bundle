@@ -30,7 +30,7 @@ class UserProvider extends AbstractController implements ProviderInterface
     /**
      * @return User|iterable<User>
      */
-    public function provide(Operation $operation, array $uriVariables = [], array $context = [])
+    public function provide(Operation $operation, array $uriVariables = [], array $context = []): object|array|null
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
