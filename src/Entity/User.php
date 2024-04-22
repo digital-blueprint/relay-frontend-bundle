@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Dbp\Relay\FrontendBundle\Entity;
 
-use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 class User
 {
