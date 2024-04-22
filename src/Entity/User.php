@@ -4,17 +4,16 @@ declare(strict_types=1);
 
 namespace Dbp\Relay\FrontendBundle\Entity;
 
-use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Attribute\Groups;
 
 class User
 {
     private $identifier;
 
     /**
-     * @Groups({"FrontendUser:output"})
-     *
      * @var string[]
      */
+    #[Groups(['FrontendUser:output'])]
     private $roles;
 
     public function getRoles(): array
