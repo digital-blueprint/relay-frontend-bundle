@@ -15,6 +15,10 @@
     {
       "matchPackageNames": ["api-platform/core"],
       "allowedVersions": "<4"
+    },
+    {
+      "matchPackagePrefixes": ["symfony/"],
+      "allowedVersions": "<7"
     }
   ]
 }
