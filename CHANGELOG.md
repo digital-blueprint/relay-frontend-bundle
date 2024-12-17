@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.11
+
+* Add event UserRolesRequestedEvent which allows subscribers to add roles for the current user
+
 ## v0.1.10
 
 * Port to PHPUnit 10

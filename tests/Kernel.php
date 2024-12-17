@@ -47,5 +47,7 @@ class Kernel extends BaseKernel
             'secret' => '',
             'annotations' => false,
         ]);
+
+        $container->services()->set(TestUserRolesRequestedEventSubscriber::class)->public()->autoconfigure()->autowire();
     }
 }

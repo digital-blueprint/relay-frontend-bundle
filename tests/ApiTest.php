@@ -34,17 +34,34 @@ class ApiTest extends ApiTestCase
 
     public function testAuthCollection()
     {
-        $client = $this->withUser('foobar', [], '42');
+        $client = $this->withUser('foobar', ['ROLE_XXX'], '42');
         $response = $client->request('GET', '/frontend/users', ['headers' => [
             'Authorization' => 'Bearer 42',
         ]]);
         $this->assertSame(Response::HTTP_OK, $response->getStatusCode());
         $content = $response->getContent();
         $data = json_decode($content, true, 512, JSON_THROW_ON_ERROR);
-        $this->assertNotNull($data);
+        $users = $data['hydra:member'];
+        $this->assertCount(1, $users);
+        $user = $users[0];
+        $this->assertSame('/frontend/users/foobar', $user['@id']);
+        $this->assertSame(['ROLE_XXX'], $user['roles']);
     }
 
-    public function testAuthUser()
+    public function testAuthUserWithoutRole()
+    {
+        $client = $this->withUser('foobar', [], '42');
+        $response = $client->request('GET', '/frontend/users/foobar', ['headers' => [
+            'Authorization' => 'Bearer 42',
+        ]]);
+        $this->assertSame(Response::HTTP_OK, $response->getStatusCode());
+        $content = $response->getContent();
+        $data = json_decode($content, true, 512, JSON_THROW_ON_ERROR);
+        $this->assertSame('/frontend/users/foobar', $data['@id']);
+        $this->assertSame([], $data['roles']);
+    }
+
+    public function testAuthUserWithSymfonyRole()
     {
         $client = $this->withUser('foobar', ['ROLE_XXX'], '42');
         $response = $client->request('GET', '/frontend/users/foobar', ['headers' => [
@@ -55,6 +72,34 @@ class ApiTest extends ApiTestCase
         $data = json_decode($content, true, 512, JSON_THROW_ON_ERROR);
         $this->assertSame('/frontend/users/foobar', $data['@id']);
         $this->assertSame(['ROLE_XXX'], $data['roles']);
+    }
+
+    public function testAuthUserWithSymfonyRoleAndAddedRole()
+    {
+        $client = $this->withUser('admin', ['ROLE_XXX'], '42');
+        $response = $client->request('GET', '/frontend/users/admin', ['headers' => [
+            'Authorization' => 'Bearer 42',
+        ]]);
+        $this->assertSame(Response::HTTP_OK, $response->getStatusCode());
+        $content = $response->getContent();
+        $data = json_decode($content, true, 512, JSON_THROW_ON_ERROR);
+        $this->assertSame('/frontend/users/admin', $data['@id']);
+        $this->assertCount(2, $data['roles']);
+        $this->assertContains('ROLE_XXX', $data['roles']);
+        $this->assertContains('ROLE_ADMIN', $data['roles']);
+    }
+
+    public function testAuthUserWithAddedRole()
+    {
+        $client = $this->withUser('franz', [], '42');
+        $response = $client->request('GET', '/frontend/users/franz', ['headers' => [
+            'Authorization' => 'Bearer 42',
+        ]]);
+        $this->assertSame(Response::HTTP_OK, $response->getStatusCode());
+        $content = $response->getContent();
+        $data = json_decode($content, true, 512, JSON_THROW_ON_ERROR);
+        $this->assertSame('/frontend/users/franz', $data['@id']);
+        $this->assertSame(['ROLE_FRANZ'], $data['roles']);
     }
 
     public function testAuthUserNotFound()

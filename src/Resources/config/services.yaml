@@ -1,6 +1,5 @@
 services:
-  Dbp\Relay\FrontendBundle\State\:
-    resource: '../../State'
+  Dbp\Relay\FrontendBundle\Rest\UserProvider:
     autowire: true
     autoconfigure: true
 

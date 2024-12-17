@@ -21,5 +21,7 @@ class DbpRelayFrontendExtension extends ConfigurableExtension
             new FileLocator(__DIR__.'/../Resources/config')
         );
         $loader->load('services.yaml');
+
+        $this->addResourceClassDirectory($container, __DIR__.'/../Entity');
     }
 }
