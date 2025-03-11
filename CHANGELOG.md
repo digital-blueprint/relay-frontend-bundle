@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.12 
+
+* Call UserProvider parent constructor
+
 ## v0.1.11
 
 * Add event UserRolesRequestedEvent which allows subscribers to add roles for the current user

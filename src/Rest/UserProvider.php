@@ -17,6 +17,7 @@ class UserProvider extends AbstractDataProvider
 {
     public function __construct(private readonly FrontendUserProvider $userProvider)
     {
+        parent::__construct();
     }
 
     protected function getItemById(string $id, array $filters = [], array $options = []): ?object
