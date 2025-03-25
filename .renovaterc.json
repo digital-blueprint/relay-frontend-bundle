@@ -13,12 +13,16 @@
   "constraintsFiltering": "strict",
   "packageRules": [
     {
+      "matchPackagePrefixes": ["symfony/"],
+      "allowedVersions": "<7"
+    },
+    {
       "matchPackageNames": ["api-platform/core"],
       "allowedVersions": "<4"
     },
     {
-      "matchPackagePrefixes": ["symfony/"],
-      "allowedVersions": "<7"
+      "matchPackageNames": ["phpunit/phpunit"],
+      "allowedVersions": "<11"
     }
   ]
 }
