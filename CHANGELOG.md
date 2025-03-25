@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v0.1.13
 
 * Drop support for PHP 8.1
 * Drop support for Psalm
