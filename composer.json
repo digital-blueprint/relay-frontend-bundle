@@ -3,9 +3,9 @@
     "type": "symfony-bundle",
     "license": "AGPL-3.0-or-later",
     "require": {
-        "php": ">=8.1",
+        "php": ">=8.2",
         "ext-json": "*",
-        "api-platform/core": "^3.2",
+        "api-platform/core": "^3.4",
         "dbp/relay-core-bundle": "^0.1.186",
         "symfony/framework-bundle": "^6.4",
         "symfony/security-core": "^6.4",
@@ -39,7 +39,7 @@
     "config": {
         "sort-packages": true,
         "platform": {
-            "php": "8.1"
+            "php": "8.2"
         }
     },
     "scripts": {
