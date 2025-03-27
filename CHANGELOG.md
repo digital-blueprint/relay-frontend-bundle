@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.1.14
+
+* Allow specifying dynamic frontend roles via the bundle configuration
+
+    ```yaml
+    # config/packages/dbp_relay_frontend.yaml
+    dbp_relay_frontend:
+        roles:
+            ROLE_CUSTOM: '<some expression>'
+    ```
+
+
 ## v0.1.13
 
 * Drop support for PHP 8.1
