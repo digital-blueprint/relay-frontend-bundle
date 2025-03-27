@@ -16,7 +16,8 @@ class FrontendUserProvider
 {
     public function __construct(
         private readonly Security $security,
-        private readonly EventDispatcherInterface $eventDispatcher)
+        private readonly EventDispatcherInterface $eventDispatcher,
+        private readonly AuthorizationService $authorizationService)
     {
     }
 
@@ -28,10 +29,19 @@ class FrontendUserProvider
         $user = new User();
         $user->setIdentifier($symfonyUser->getUserIdentifier());
 
+        // All roles defined in the bundle config for which their expression evaluates to true get added
+        $configRoles = [];
+        foreach ($this->authorizationService->getRoleNames() as $name) {
+            if ($this->authorizationService->isGrantedRole($name)) {
+                $configRoles[] = $name;
+            }
+        }
+
         $userRolesRequestedEvent = new UserRolesRequestedEvent($user->getIdentifier());
         $this->eventDispatcher->dispatch($userRolesRequestedEvent);
 
-        $user->setRoles(array_merge($symfonyUser->getRoles(), $userRolesRequestedEvent->getUserRolesToAdd()));
+        // First Symfony roles, then config roles, finally event roles
+        $user->setRoles(array_merge(array_merge($symfonyUser->getRoles(), $configRoles), $userRolesRequestedEvent->getUserRolesToAdd()));
 
         return $user;
     }

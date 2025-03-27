@@ -6,3 +6,7 @@ services:
   Dbp\Relay\FrontendBundle\Service\FrontendUserProvider:
     autowire: true
     autoconfigure: true
+
+  Dbp\Relay\FrontendBundle\Service\AuthorizationService:
+    autowire: true
+    autoconfigure: true

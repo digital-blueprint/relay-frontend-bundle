@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Dbp\Relay\FrontendBundle\DependencyInjection;
 
 use Dbp\Relay\CoreBundle\Extension\ExtensionTrait;
+use Dbp\Relay\FrontendBundle\Service\AuthorizationService;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
@@ -23,5 +24,8 @@ class DbpRelayFrontendExtension extends ConfigurableExtension
         $loader->load('services.yaml');
 
         $this->addResourceClassDirectory($container, __DIR__.'/../Entity');
+
+        $definition = $container->getDefinition(AuthorizationService::class);
+        $definition->addMethodCall('setConfig', [$mergedConfig]);
     }
 }

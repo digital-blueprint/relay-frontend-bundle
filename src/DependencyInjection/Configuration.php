@@ -12,6 +12,13 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('dbp_relay_frontend');
+        $treeBuilder->getRootNode()
+            ->children()
+                ->arrayNode('roles')
+                    ->useAttributeAsKey('name')
+                    ->prototype('scalar')->end()
+                ->end()
+            ->end();
 
         return $treeBuilder;
     }
