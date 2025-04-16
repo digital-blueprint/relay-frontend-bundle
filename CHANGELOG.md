@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.15
+
+* Add support for api-platform 4.1+ (in addition to 3.4)
+
 ## v0.1.14
 
 * Allow specifying dynamic frontend roles via the bundle configuration
