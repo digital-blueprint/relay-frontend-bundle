@@ -5,8 +5,8 @@
     "require": {
         "php": ">=8.2",
         "ext-json": "*",
-        "api-platform/core": "^3.4",
-        "dbp/relay-core-bundle": "^0.1.190",
+        "api-platform/core": "^3.4 || ^4.1",
+        "dbp/relay-core-bundle": "^0.1.209",
         "symfony/config": "^6.4",
         "symfony/dependency-injection": "^6.4",
         "symfony/event-dispatcher": "^6.4",

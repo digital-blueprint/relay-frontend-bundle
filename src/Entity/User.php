@@ -8,6 +8,7 @@ use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\OpenApi\Model\Operation;
 use Dbp\Relay\FrontendBundle\Rest\UserProvider;
 use Symfony\Component\Serializer\Annotation\Groups;
 
@@ -17,16 +18,16 @@ use Symfony\Component\Serializer\Annotation\Groups;
     operations: [
         new Get(
             uriTemplate: '/frontend/users/{identifier}',
-            openapiContext: [
-                'tags' => ['Frontend'],
-            ],
+            openapi: new Operation(
+                tags: ['Frontend']
+            ),
             provider: UserProvider::class
         ),
         new GetCollection(
             uriTemplate: '/frontend/users',
-            openapiContext: [
-                'tags' => ['Frontend'],
-            ],
+            openapi: new Operation(
+                tags: ['Frontend']
+            ),
             provider: UserProvider::class
         ),
     ],
