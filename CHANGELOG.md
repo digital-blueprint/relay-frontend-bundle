@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.16
+
+* Drop support for api-platform 3
+* Dependency cleanups
+
 ## v0.1.15
 
 * Add support for api-platform 4.1+ (in addition to 3.4)
