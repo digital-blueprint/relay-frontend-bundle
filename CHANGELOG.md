@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.17
+
+* Add support for Symfony 7.4
+
 ## v0.1.16
 
 * Drop support for api-platform 3
