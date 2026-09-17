@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.18
+
+- Stop using the deprecated UserAuthTrait
+
 ## v0.1.17
 
 * Add support for Symfony 7.4
