@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.19
+
+- Internal updates
+
 ## v0.1.18
 
 - Stop using the deprecated UserAuthTrait
