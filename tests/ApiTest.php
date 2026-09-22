@@ -4,11 +4,16 @@ declare(strict_types=1);
 
 namespace Dbp\Relay\FrontendBundle\Tests;
 
-use Dbp\Relay\CoreBundle\TestUtils\AbstractApiTest;
+use Dbp\Relay\CoreBundle\TestUtils\ApiTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
-class ApiTest extends AbstractApiTest
+class ApiTest extends ApiTestCase
 {
+    public function setUp(): void
+    {
+        $this->createTestClient();
+    }
+
     public function testBasics()
     {
         $response = $this->testClient->get('/frontend/users', token: null);
