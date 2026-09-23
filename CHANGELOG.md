@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.20
+
+- Add support for api-platform 5.0
+
 ## v0.1.19
 
 - Internal updates
